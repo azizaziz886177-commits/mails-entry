@@ -1,0 +1,269 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1 style="text-align:center;color:#1E3A8A;">
+        📧 MailSentry Insight Dashboard
+    </h1>
+
+    <br>
+
+    <!-- Dashboard Cards -->
+    <div class="cards">
+
+        <div class="card blue">
+            <h3>Total Emails</h3>
+            <h1>{{ total }}</h1>
+        </div>
+
+        <div class="card green">
+            <h3>Sales Leads</h3>
+            <h1>{{ sales }}</h1>
+        </div>
+
+        <div class="card orange">
+            <h3>Support</h3>
+            <h1>{{ support }}</h1>
+        </div>
+
+        <div class="card purple">
+            <h3>Invoices</h3>
+            <h1>{{ invoice }}</h1>
+        </div>
+
+        <div class="card red">
+            <h3>HR</h3>
+            <h1>{{ hr }}</h1>
+        </div>
+
+        <div class="card black">
+            <h3>Spam</h3>
+            <h1>{{ spam }}</h1>
+        </div>
+
+    </div>
+
+    <br>
+
+    <!-- Search Box -->
+
+    <input
+        type="text"
+        id="searchInput"
+        onkeyup="searchTable()"
+        placeholder="🔍 Search Sender or Subject..."
+        style="width:100%;padding:12px;font-size:16px;border-radius:8px;">
+
+    <br><br>
+
+    <!-- Analytics -->
+
+    <h2>📊 Analytics</h2>
+
+    <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:center;">
+
+        <div>
+            <h3>Category Distribution</h3>
+            <img src="{{ url_for('static', filename='images/category_distribution.png') }}" width="350">
+        </div>
+
+        <div>
+            <h3>Top Senders</h3>
+            <img src="{{ url_for('static', filename='images/top_senders.png') }}" width="350">
+        </div>
+
+        <div>
+            <h3>Emails Per Day</h3>
+            <img src="{{ url_for('static', filename='images/daily_volume.png') }}" width="350">
+        </div>
+
+    </div>
+
+    <br>
+
+    <h2>📧 Processed Emails</h2>
+    <input
+    type="text"
+    id="searchInput"
+    placeholder="Search emails..."
+    onkeyup="searchEmails()">
+
+    <table id="emailTable" border="1" cellpadding="10" cellspacing="0" width="100%">
+
+        <thead style="background:#1E3A8A;color:white;">
+
+        <tr>
+
+            <th>Email ID</th>
+            <th>Sender</th>
+            <th>Subject</th>
+            <th>Category</th>
+            <th>Date</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for email in emails %}
+
+        <tr>
+
+                    <tr>
+            <td>1</td>
+            <td>john@example.com</td>
+            <td>Invoice Payment</td>
+            <td>Invoice</td>
+            <td>07-07-2026</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>alice@gmail.com</td>
+            <td>Meeting Reminder</td>
+            <td>Work</td>
+            <td>07-07-2026</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>support@amazon.com</td>
+            <td>Your Order has Shipped</td>
+            <td>Shopping</td>
+            <td>06-07-2026</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>hr@company.com</td>
+            <td>Interview Invitation</td>
+            <td>Job</td>
+            <td>06-07-2026</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>bank@hdfc.com</td>
+            <td>Transaction Alert</td>
+            <td>Finance</td>
+            <td>05-07-2026</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>newsletter@github.com</td>
+            <td>Weekly Developer Update</td>
+            <td>Newsletter</td>
+            <td>05-07-2026</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>college@edu.in</td>
+            <td>Semester Examination Notice</td>
+            <td>Education</td>
+            <td>04-07-2026</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>flipkart@flipkart.com</td>
+            <td>Big Sale Offer</td>
+            <td>Promotion</td>
+            <td>04-07-2026</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>security@gmail.com</td>
+            <td>Password Changed Successfully</td>
+            <td>Security</td>
+            <td>03-07-2026</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>noreply@linkedin.com</td>
+            <td>New Job Matches</td>
+            <td>Career</td>
+            <td>03-07-2026</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>events@google.com</td>
+            <td>Google Cloud Event Invitation</td>
+            <td>Event</td>
+            <td>02-07-2026</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>friends@gmail.com</td>
+            <td>Birthday Party Invitation</td>
+            <td>Personal</td>
+            <td>02-07-2026</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>zomato@zomato.com</td>
+            <td>Exclusive Food Discount</td>
+            <td>Promotion</td>
+            <td>01-07-2026</td>
+        </tr>
+        <tr>
+            <td>14</td>
+            <td>support@paypal.com</td>
+            <td>Payment Received Successfully</td>
+            <td>Finance</td>
+            <td>01-07-2026</td>
+        </tr>
+        <tr>
+            <td>15</td>
+            <td>noreply@microsoft.com</td>
+            <td>Security Update Available</td>
+            <td>Security</td>
+            <td>30-06-2026</td>
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>coursera@coursera.org</td>
+            <td>Course Completion Certificate</td>
+            <td>Education</td>
+            <td>30-06-2026</td>
+        </tr>
+        <tr>
+            <td>17</td>
+            <td>spotify@spotify.com</td>
+            <td>Your Weekly Playlist</td>
+            <td>Entertainment</td>
+            <td>29-06-2026</td>
+        </tr>
+        <tr>
+            <td>18</td>
+            <td>airindia@airindia.in</td>
+            <td>Flight Booking Confirmation</td>
+            <td>Travel</td>
+            <td>29-06-2026</td>
+        </tr>
+        <tr>
+            <td>19</td>
+            <td>host@internship.com</td>
+            <td>Project Submission Reminder</td>
+            <td>Work</td>
+            <td>28-06-2026</td>
+        </tr>
+        <tr>
+            <td>20</td>
+            <td>noreply@instagram.com</td>
+            <td>New Login Detected</td>
+            <td>Security</td>
+            <td>28-06-2026</td>
+        </tr>
+    
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+{% endblock %}

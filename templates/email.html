@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>📧 Email Details</h2>
+    <hr>
+
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+
+        <tr>
+            <th width="20%">Email ID</th>
+            <td>{{ email.email_id }}</td>
+        </tr>
+
+        <tr>
+            <th>Sender</th>
+            <td>{{ email.sender }}</td>
+        </tr>
+
+        <tr>
+            <th>Subject</th>
+            <td>{{ email.subject }}</td>
+        </tr>
+
+        <tr>
+            <th>Category</th>
+            <td>{{ email.category }}</td>
+        </tr>
+
+        <tr>
+            <th>Date</th>
+            <td>{{ email.date }}</td>
+        </tr>
+
+        <tr>
+            <th>Risk Level</th>
+            <td>{{ email.risk }}</td>
+        </tr>
+
+        <tr>
+            <th>Email Body</th>
+            <td>
+                <pre>{{ email.body }}</pre>
+            </td>
+        </tr>
+
+    </table>
+
+    <br>
+
+    <center>
+
+        <

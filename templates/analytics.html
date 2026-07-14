@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>📊 MailSentry Insight Analytics</h2>
+    <hr>
+
+    <div class="cards">
+
+        <div class="card blue">
+            <h3>Total Emails</h3>
+            <h1>{{ total_emails }}</h1>
+        </div>
+
+        <div class="card green">
+            <h3>Safe Emails</h3>
+            <h1>{{ safe }}</h1>
+        </div>
+
+        <div class="card orange">
+            <h3>Medium Risk</h3>
+            <h1>{{ medium }}</h1>
+        </div>
+
+        <div class="card red">
+            <h3>High Risk</h3>
+            <h1>{{ high }}</h1>
+        </div>
+
+        <div class="card black">
+            <h3>Spam Emails</h3>
+            <h1>{{ spam }}</h1>
+        </div>
+
+    </div>
+
+    <br><br>
+
+    <h2>📈 Analytics Charts</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+        <tr>
+            <td align="center">
+                <img src="{{ url_for('static', filename='images/category_chart.png') }}"
+                     width="450"
+                     alt="Category Chart">
+            </td>
+
+            <td align="center">
+                <img src="{{ url_for('static', filename='images/r
+                {% extends "layout.html" %}
+
+{% block content %}
+
+<h2>Email Analytics Dashboard</h2>
+
+<h3>Category Distribution</h3>
+<img src="{{ url_for('static', filename='images/category_distribution.png') }}" width="700">
+
+<h3>Daily Email Volume</h3>
+<img src="{{ url_for('static', filename='images/daily_volume.png') }}" width="700">
+
+<h3>Top Senders</h3>
+<img src="{{ url_for('static', filename='images/top_senders.png') }}" width="700">
+
+{% endblock %}
